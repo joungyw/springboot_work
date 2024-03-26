@@ -3,6 +3,7 @@ package com.mh.restapi03.users;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,8 @@ public class UserDto {
 
     private Long id;
 
+
+    @Size(min = 5,max = 50)
     @NotBlank
     private String username;
     private String email;

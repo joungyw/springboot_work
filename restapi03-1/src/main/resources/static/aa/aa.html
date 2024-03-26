@@ -7,15 +7,56 @@
     <title>Document</title>
     <script>
 
-         fetch("http://localhost:8083/users")
-             .then(res => {return res.json();
-             })
-             .then( date =>{
-                 console.log(date);
-             })
+        fetch("http://localhost:8083/users")
+        .then(res => {
+            return res.json();
+        })
+        .then(date => {
+            console.log(date);
+        })
+
+        function doSelect() {
+            fetch("http://localhost:8083/users")
+                .then(res => {
+                    return res.json();
+                })
+                .then(date => {
+                    console.log(date);
+                })
+        }
+        function doDelete() {
+            const a = [];
+            a.push(10);
+            a.push(20);
+
+            const b = {
+                a: "aa", b: "bb", c: function () {
+                    alert('함수');
+                }
+            };
+            console.log(b)
+            b.c();
+            const url = "http://localhost:8083/users/1";
+
+            fetch(url,
+                {
+                    method: "delete",
+                    headers: {'Content-Type': 'application/json'}
+                }
+            )
+                .then(res => {
+                    return res.text();
+                })
+                .then(data => {
+                   console.log(data)
+                })
+        }
+
     </script>
 </head>
 <body>
-<h1> aa.html</h1>
+    <h1> aa.html</h1>
+    <button onclick="doSelect()"> 조회</button>
+    <button onclick="doDelete()"> 삭제</button>
 </body>
 </html>

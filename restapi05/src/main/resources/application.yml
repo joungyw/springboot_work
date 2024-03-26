@@ -1,0 +1,35 @@
+server:
+  port: 8083
+
+spring:
+  application:
+  name: restapi05
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mh?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1234
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+
+mh:
+ jwt:
+  secret: mh1234mh1234mh1234mh1234mh1234mh1234mh1234mh1234
+
+
+jasypt:
+  encryptor:
+    password: ${PASSWORD}
